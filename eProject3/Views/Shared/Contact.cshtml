@@ -1,0 +1,37 @@
+﻿@model IEnumerable<eProject3.Model.DAL.Contact>
+@{ 
+    int i = 0;
+}
+
+<div class="footer" id="Contact">
+    <div class="container">
+        <div class="footer-top">
+            @if (ViewBag.Count > 0)
+            {
+                foreach (var item in Model)
+                {
+                    <div class="col-md-4 footer-left">
+                        <h3>@item.Title</h3>
+                        <ul>
+                            <li><b>@item.ObjectName</b></li>
+                            <li>Địa chỉ: <a href="#">@item.Address</a></li>
+                            <li>Sđt: <a href="#">@item.Mobile</a></li>
+                            <li>Website: <a href="#">@item.Website</a></li>
+                            <li>Email: <a href="#">@item.Email</a></li>
+                        </ul>
+                    </div>
+                }
+                <div class="col-md-4 footer-left">
+                    
+                </div>
+                <div class="col-md-4 footer-left">
+                    <h3>Bản Đồ</h3>
+                    <ul>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3723.8424518526435!2d105.82106531424554!3d21.038988992806473!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab0bffdd7719%3A0xe39f4cff7a1d68b8!2zMSBIb8OgbmcgSG9hIFRow6FtLCBOZ-G7jWMgSOG7kywgQmEgxJDDrG5oLCBIw6AgTuG7mWksIFZp4buHdCBOYW0!5e0!3m2!1svi!2s!4v1625726701788!5m2!1svi!2s" width="300" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </ul>
+                </div>
+            }
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+</div>

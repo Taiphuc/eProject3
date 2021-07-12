@@ -1,0 +1,46 @@
+﻿@{
+    var session = (eProject3.Model.Common.UserLogin)Session[eProject3.Model.Common.CommonConstants.USER_SESSION];
+}
+<div class="top-component">
+    <div class="float-left">
+        <p>Bạn cần hỗ trợ? <span class="text-danger"> Gọi cho chúng tôi: </span><a href="#"> 0988.944.608</a></p>
+    </div>
+    <div class="float-right">
+        @if (session == null)
+        {
+            <a href="/User/Register" class="nav-link">Đăng ký</a>
+            <a href="/User/Login" class="nav-link">Đăng nhập</a>
+        }
+        else
+        {
+            <a href="@Url.Action("Logout", "User")" class="nav-link" data-toggle="tooltip" title="Đăng xuất"><i class="fas fa-sign-out-alt"></i></a>
+            <a href="/User/EditProfile?id=@session.UserId" data-toggle="tooltip" title="Hồ sơ người dùng" class="nav-link dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="text-danger"><span class="text-primary">Xin chào:</span> @session.UserName</span>
+            </a>
+        }
+    </div>
+</div>
+<div class="top-header">
+    <div class="container">
+        <div class="top-header-main">
+            <div class="col-md-4 top-header-left">
+                <div class="search-bar">
+                    <form action="/Product/Search" method="get">
+                        <input type="text" value="@ViewBag.Keyword" name="keyword" id="txtKeyword" placeholder="Tìm kiếm">
+                        <input type="submit" value="">
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-4 top-header-middle">
+                <a href="/trang-chu"><img src="~/Content1/Admin/images/logo.png" alt="" /></a>
+            </div>
+            <div class="col-md-4 top-header-right">
+                @if (session != null)
+                {
+                    Html.RenderAction("HeaderCart", "Home");
+                }
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>

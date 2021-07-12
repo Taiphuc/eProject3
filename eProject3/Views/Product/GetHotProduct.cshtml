@@ -1,0 +1,32 @@
+﻿@model IEnumerable<eProject3.Model.DAL.Product>
+
+@if ((int)ViewBag.Count > 0)
+{
+    <div class="banner-bottom">
+        <div class="container">
+            <div class="banner-bottom-top">
+                @foreach (var item in Model)
+                {
+                    var url = "/Product/Detail/" + item.MetaTitle + "/" + item.Id;
+                    <div class="col-md-6 banner-bottom-left">
+                        <div class="bnr-one" style="height: 346px;">
+                            <div class="bnr-left">
+                                <h1><a href="@url">@item.Name</a></h1>
+                                <p>@Html.Raw(item.MetaDescriptions)</p>
+                                <div class="b-btn">
+                                    <a href="@url">XEM CHI TIẾT</a>
+                                </div>
+                            </div>
+                            <div class="bnr-right">
+                                <a href="@url"><img src="@item.UrlImage" width="200" height="130" alt="" /></a>
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                    </div>
+                }
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+    </div>
+}
+

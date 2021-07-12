@@ -1,0 +1,21 @@
+﻿@model IEnumerable<eProject3.Model.DAL.Slide>
+@{
+    int i = 0;
+}
+
+@if ((int)ViewBag.Count > 0)
+{
+    <div class="bnr" id="home">
+        <div id="top" class="callbacks_container">
+            <ul class="rslides" id="slider4">
+                @foreach (var item in Model)
+                {
+                    <li>
+                        <div class="banner-1" style="background:url(@item.UrlImage) no-repeat center;"></div>
+                    </li>
+                }
+            </ul>
+        </div>
+        <div class="clearfix"> </div>
+    </div>
+}

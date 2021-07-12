@@ -1,0 +1,10 @@
+﻿@model IEnumerable<eProject3.Model.DAL.ProductCategory>
+@if (ViewBag.Count > 0)
+{
+    <li><a href="/Product/getAllProduct">Tất cả sản phẩm <span class="count">(@ViewBag.CountAllProduct)</span></a></li>
+    foreach (var item in Model)
+    {
+        var url = "/Product/CategoryDetail/" + item.MetaTitle + "/" + item.Id;
+        <li><a href="@url">@item.Name</a> <span class="count">(@item.Product.Count)</span></li>
+    }
+}
