@@ -19,7 +19,7 @@
                     <div class="form-group">
                         @Html.TextBox("Search", null, new { @class = "col-md-4 form-control float-left", @value = ViewBag.SearchString })
                         <button type="submit" class="btn btn-secondary ml-1"><i class="fa fa-search"></i></button>
-                        <a href="/#" class="float-right btn btn-group-sm btn-primary text-decoration-none">Đơn đã hủy</a>
+                        <a href="/Admin/Orders/CancelOrder" class="float-right btn btn-group-sm btn-primary text-decoration-none">Đơn đã hủy</a>
                     </div>
                 }
                 <thead>

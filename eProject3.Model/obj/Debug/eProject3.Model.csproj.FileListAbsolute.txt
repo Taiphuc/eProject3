@@ -22,3 +22,4 @@ C:\Users\DELL\source\repos\eProject3\eProject3.Model\obj\Debug\eProject3.Model.c
 C:\Users\DELL\source\repos\eProject3\eProject3.Model\obj\Debug\eProject3.Model.csproj.CopyComplete
 C:\Users\DELL\source\repos\eProject3\eProject3.Model\obj\Debug\eProject3.Model.dll
 C:\Users\DELL\source\repos\eProject3\eProject3.Model\obj\Debug\eProject3.Model.pdb
+C:\Users\DELL\source\repos\eProject3\eProject3.Model\obj\Debug\eProject3.Model.csprojAssemblyReference.cache

@@ -192,9 +192,13 @@ namespace eProject3.Areas.Admin.Controllers
         public JsonResult ChangeStatus(Guid? id)
         {
             var result = new UserDao().ChangeStatus(id);
+            if (result.GroupId == CommonConstants.ADMIN_GROUP)
+            {
+                SetAlert("Bạn không có quyền thay đổi trạng thái admin", "warning");
+            }
             return Json(new
             {
-                status = result
+                status = result.IsDeleted
             });
         }
     }

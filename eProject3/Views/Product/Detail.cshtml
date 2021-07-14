@@ -70,18 +70,18 @@
                             <div class="price_single">
                                 @if (Model.PromotionPrice > 0)
                                 {
-                                    <span class="reducedfrom text-danger"><span>Giá gốc: </span>@(Model.Price.HasValue ? Model.Price.Value.ToString("N0") : "Liên hệ")đ</span>
+                                    <span class="reducedfrom text-danger"><span>Giá gốc: </span>@(Model.Price.HasValue ? Model.Price.Value.ToString("N0") + " đ" : "Liên hệ")</span>
                                     <br />
-                                    <span class="actual item_price"><span>Giá khuyến mãi: </span>@(Model.PromotionPrice.Value.ToString("N0"))đ</span>
+                                    <span class="actual item_price"><span>Giá khuyến mãi: </span>@(Model.PromotionPrice.Value.ToString("N0")) đ</span>
                                 }
                                 else
                                 {
-                                    <span class="actual item_price"><span>Giá: </span>@(Model.Price.HasValue ? Model.Price.Value.ToString("N0") : "Liên hệ")đ</span>
+                                    <span class="actual item_price"><span>Giá: </span>@(Model.Price.HasValue ? Model.Price.Value.ToString("N0") + " đ" : "Liên hệ")</span>
                                 }
 
                             </div>
                             <h2 class="quick">Mô tả:</h2>
-                            <p class="quick_desc">@Html.Raw(Model.Description)</p>
+                            <p class="quick_desc">@Html.Raw(Model.MetaDescriptions)</p>
                             <div class="clearfix"> </div>
                             <div class="single-but item_add">
                                 <a href="/Cart/AddItem?productId=@Model.Id&quantity=1">

@@ -96,3 +96,5 @@ C:\Users\DELL\source\repos\eProject3\eProject3\bin\PagedList.dll
 C:\Users\DELL\source\repos\eProject3\eProject3\bin\PagedList.Mvc.dll
 C:\Users\DELL\source\repos\eProject3\eProject3\bin\PagedList.xml
 C:\Users\DELL\source\repos\eProject3\eProject3\bin\PagedList.Mvc.xml
+C:\Users\DELL\source\repos\eProject3\eProject3\bin\CKFinder.dll
+C:\Users\DELL\source\repos\eProject3\eProject3\bin\CKFinder.pdb

@@ -19,6 +19,14 @@ namespace eProject3.Controllers
             return View();
         }
 
+        public ActionResult getNormalProduct1()
+        {
+            List<Product> products = new List<Product>();
+            products = db.Product.Where(x => x.IsNormalProduct1 == true && !x.IsDeleted).OrderByDescending(x => x.CreatedOn).Take(4).ToList();
+            ViewBag.Count = products.Count();
+            return PartialView(products);
+        }
+
         public ActionResult getNormalProduct2()
         {
             List<Product> products = new List<Product>();

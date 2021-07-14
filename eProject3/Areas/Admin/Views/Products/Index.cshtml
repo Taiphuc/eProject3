@@ -19,7 +19,7 @@
                     <div class="form-group">
                         @Html.TextBox("Search", null, new { @class = "col-md-4 form-control float-left", @value = ViewBag.SearchString })
                         <button type="submit" class="btn btn-secondary ml-1"><i class="fa fa-search"></i></button>
-                        <a href="/#" class="btn btn-group-sm btn-primary text-decoration-none"><i class="fa fa-plus"></i> Thêm mới</a>
+                        <a href="/Admin/Products/Create" class="btn btn-group-sm btn-primary text-decoration-none"><i class="fa fa-plus"></i> Thêm mới</a>
                     </div>
                 }
                 <thead>
@@ -37,7 +37,7 @@
                         <th>
                             Ảnh
                         </th>
-                        <th>
+                        <th style="width: 120px;">
                             Giá
                             <a href="/Admin/Products?sortOrder=@ViewBag.PriceSortParm&searchString=@ViewBag.SearchString"><i class="fas fa-sort text-dark"></i></a>
                         </th>
@@ -48,6 +48,9 @@
                         <th>
                             Số lượng
                             <a href="/Admin/Products?sortOrder=@ViewBag.QuantitySortParm&searchString=@ViewBag.SearchString"><i class="fas fa-sort text-dark"></i></a>
+                        </th>
+                        <th>
+                            Trạng thái
                         </th>
                         <th class="text-center" style="width: 115px;"></th>
                     </tr>
@@ -78,9 +81,26 @@
                                 @Html.DisplayFor(modelItem => item.Quantity)
                             </td>
                             <td>
-                                <a class="btn-sm btn-group-sm btn-success" href="/quan-tri/danh-muc-san-pham/cap-nhat?id=@item.Id"><i class="far fa-edit"></i></a>
+                                @if (!item.IsDeleted)
+                                {
+                                    <p>Hoạt động</p>
+                                }
+                                else
+                                {
+                                    <p>Đã xóa</p>
+                                }
+                            </td>
+                            <td>
+                                <a class="btn-sm btn-group-sm btn-success" href="/Admin/Products/Edit?id=@item.Id"><i class="far fa-edit"></i></a>
                                 <a class="btn-sm btn-group-sm btn-secondary dialog-link" href="@Url.Action("Details", new { id = item.Id })"><i class="fas fa-info"></i></a>
-                                <a class="btn-sm btn-group-sm btn-danger dialog-link" href="@Url.Action("Delete", new { id = item.Id })"><i class="far fa-trash-alt"></i></a>
+                                @if (!item.IsDeleted)
+                                {
+                                    <a class="btn-sm btn-group-sm btn-danger dialog-link" href="@Url.Action("Delete", new { id = item.Id })"><i class="far fa-trash-alt"></i></a>
+                                }
+                                else
+                                {
+                                    <a class="btn-sm btn-group-sm btn-primary dialog-link" href="@Url.Action("Restore", new { id = item.Id })"><i class="fas fa-trash-restore-alt"></i></a>
+                                }
                             </td>
                         </tr>
                         i++;
@@ -98,3 +118,36 @@
         </div>
     </div>
 </div>
+
+@section Scripts{
+    <script>
+        var order = {
+            init: function () {
+                order.registerEvents();
+            },
+            registerEvents: function () {
+                $('.btn-user').off('click').on('click', function (e) {
+                    e.preventDefault();
+                    var btn = $(this);
+                    var id = btn.data('id');
+                    $.ajax({
+                        url: "/Admin/Products/ChangeStatus",
+                        data: { id: id },
+                        dataType: "json",
+                        type: "POST",
+                        success: function (response) {
+                            console.log(response);
+                            if (response.status == true) {
+                                btn.text('Khóa');
+                            }
+                            else {
+                                btn.text('Hoạt động');
+                            }
+                        }
+                    })
+                });
+            },
+        }
+        order.init();
+    </script>    
+}

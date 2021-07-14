@@ -37,13 +37,13 @@
                                     {
                                         if (item.Quantity > 0)
                                         {
-                                            <p><a class="" href="#"><span class=""><strike>@(item.Price.Value.ToString("N0"))</strike></span></a></p> <br />
-                                            <p><a class="item_add" href="/them-gio-hang?productId=@item.Id&quantity=1"><i></i> <span class=" item_price">@(item.PromotionPrice.Value.ToString("N0"))</span></a></p>
+                                            <p><a class="" href="#"><span class=""><strike>@(item.Price.Value.ToString("N0")) đ</strike></span></a></p> <br />
+                                            <p><a class="item_add" href="/Cart/AddItem?productId=@item.Id&quantity=1"><i></i> <span class=" item_price">@(item.PromotionPrice.Value.ToString("N0")) đ</span></a></p>
                                         }
                                         else
                                         {
                                             <p><a class="" href="#"><span class=""><strike>@(item.Price.Value.ToString("N0"))</strike></span></a></p> <br />
-                                            <p><a class="item_add" style="pointer-events: none" href="/them-gio-hang?productId=@item.Id&quantity=1"><i></i> <span class=" item_price">@(item.PromotionPrice.Value.ToString("N0"))</span></a></p>
+                                            <p><a class="item_add" style="pointer-events: none" href="/Cart/AddItem?productId=@item.Id&quantity=1"><i></i> <span class=" item_price">@(item.PromotionPrice.Value.ToString("N0")) đ</span></a></p>
                                         }
                                     }
                                     else

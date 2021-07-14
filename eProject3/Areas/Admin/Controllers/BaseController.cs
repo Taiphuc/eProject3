@@ -39,17 +39,17 @@ namespace eProject3.Areas.Admin.Controllers
         }
         protected void CountMessage()
         {
-            var feedbacks = db.Feedback.Where(x => x.IsDeleted == false && x.Reply == null);
+            var feedbacks = db.Feedback.Where(x => x.Reply == null);
             TempData["cms"] = feedbacks.Count().ToString();
         }
         protected void CountProduct()
         {
-            var products = db.Product.Where(x => x.IsDeleted == false && x.Quantity < 5);
+            var products = db.Product.Where(x => x.Quantity < 5);
             TempData["cpd"] = products.Count().ToString();
         }
         protected void CountOrder()
         {
-            var orders = db.Order.Where(x => x.Status == false && x.IsDeleted == false);
+            var orders = db.Order.Where(x => x.IsDeleted == false);
             TempData["ord"] = orders.Count().ToString();
         }
     }

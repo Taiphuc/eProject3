@@ -13,7 +13,7 @@
         <div class="table-responsive">
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <p>
-                    <a href="/#" class="btn btn-group-sm btn-primary text-decoration-none"><i class="fa fa-plus"></i> Thêm mới</a>
+                    <a href="/Admin/Menus/Create" class="btn btn-group-sm btn-primary text-decoration-none"><i class="fa fa-plus"></i> Thêm mới</a>
                 </p>
                 <thead>
                     <tr>
@@ -61,7 +61,7 @@
                                 @Html.DisplayFor(modelItem => item.Target)
                             </td>
                             <td>
-                                <a href="/#?id=@item.Id" class="btn-sm btn-group-sm btn-primary"><i class="far fa-edit"></i></a>
+                                <a href="/Admin/Menus/Edit?id=@item.Id" class="btn-sm btn-group-sm btn-primary"><i class="far fa-edit"></i></a>
                                 <a href="@Url.Action("Details",new { id = item.Id})" class="btn-sm btn-group-sm btn-secondary dialog-link"><i class="fas fa-info"></i></a>
                                 <a href="@Url.Action("Delete",new { id = item.Id})" class="btn-sm btn-group-sm btn-danger dialog-link"><i class="far fa-trash-alt"></i></a>
                             </td>

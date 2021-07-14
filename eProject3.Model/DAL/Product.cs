@@ -30,11 +30,11 @@
         public string UrlImage { get; set; }
         [Display(Name = "Giá")]
         [DataType(DataType.Currency)]
-        [DisplayFormat(DataFormatString = "{0:#,### vnđ}")]
+        [DisplayFormat(DataFormatString = "{0:#,### đ}")]
         public decimal? Price { get; set; }
         [Display(Name = "Giá khuyến mãi")]
         [DataType(DataType.Currency)]
-        [DisplayFormat(DataFormatString = "{0:#,### vnđ}")]
+        [DisplayFormat(DataFormatString = "{0:#,### đ}")]
         public decimal? PromotionPrice { get; set; }
         [Display(Name = "Số lượng")]
         public int? Quantity { get; set; }

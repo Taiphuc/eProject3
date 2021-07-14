@@ -96,12 +96,15 @@ namespace eProject3.Model.Dao
         {
             return db.User.Count(x => x.Email == email) > 0;
         }
-        public bool ChangeStatus(Guid? id)
+        public User ChangeStatus(Guid? id)
         {
             var user = db.User.Find(id);
-            user.IsDeleted = !user.IsDeleted;
+            if (user != null && !user.UserGroup.Id.Equals(CommonConstants.ADMIN_GROUP))
+            {
+                user.IsDeleted = !user.IsDeleted;
+            }  
             db.SaveChanges();
-            return user.IsDeleted;
+            return user;
         }
     }
 }

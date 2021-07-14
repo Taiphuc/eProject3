@@ -19,6 +19,7 @@ namespace eProject3.Common
             var user = new User();
             dynamic item = obj;
             item.ModifiedOn = DateTime.Now;
+            item.ModifiedBy = user.UserName;
         }
     }
 }

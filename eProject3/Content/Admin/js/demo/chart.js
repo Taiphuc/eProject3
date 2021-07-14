@@ -1,4 +1,4 @@
-﻿$.getJSON("../Admin/Home/Chart", { year: 2019 },
+﻿$.getJSON("../Admin/Home/Chart", { year: 2021 },
     function (data) {
         chart(data)
     }
@@ -19,10 +19,10 @@ function chart(data) {
             text: 'Biểu đồ thống kê'
         },
         subtitle: {
-            text: 'Shoe Shop'
+            text: 'Gas Shop'
         },
         xAxis: {
-            categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+            categories: ['Tháng 1', 'Tháng 2', 'Tháng 3', 'Tháng 4', 'Tháng 5', 'Tháng 6', 'Tháng 7', 'Tháng 8', 'Tháng 9', 'Tháng 10', 'Tháng 11', 'Tháng 12']
         },
         yAxis: {
             title: {
@@ -38,17 +38,16 @@ function chart(data) {
             }
         },
         series: [{
-            name: 'Stock Price',
+            name: 'Tiền nhập',
             data: data.data.stock
         }, {
-            name: 'Price',
+            name: 'Tiền bán',
             data: data.data.price
         }]
     });
 }
 $.getJSON("../Admin/Home/Chart", { year: 2020 },
     function (data) {
-        console.log(data.data.stock)
-        
+        console.log(data.data.stock)     
     }
 );

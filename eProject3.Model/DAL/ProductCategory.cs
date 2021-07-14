@@ -17,13 +17,12 @@
         public Guid Id { get; set; }
 
         [StringLength(256)]
-        [Display(Name = "Loại sản phẩmm")]
+        [Display(Name = "Tên hãng")]
         public string Name { get; set; }
 
         [StringLength(256)]
         [Display(Name = "Liên kết")]
         public string MetaTitle { get; set; }
-        //[Display(Name = "Loa�i sa�n ph��m")]
         public int? ParentId { get; set; }
         [Display(Name = "STT")]
         public int? DisplayOrder { get; set; }
